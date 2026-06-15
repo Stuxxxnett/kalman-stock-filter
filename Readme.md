@@ -49,5 +49,25 @@ This project uses the **same state-space math** as EKF-based robot localization:
 
 ---
 
+---
+
+## Noise Sensitivity Analysis
+
+A key insight of the Kalman Filter is the tradeoff between two noise parameters:
+
+**Measurement Noise (R)** — how much we distrust the raw observed price.
+Higher R produces a smoother estimate but reacts more slowly to real price changes.
+
+![R Sensitivity](images/sensitivity_R.png)
+
+**Process Noise (Q)** — how much the true price is allowed to evolve each step.
+Higher Q makes the filter more responsive but also more sensitive to noise.
+Low Q causes the filter to over-smooth and miss sharp movements (visible at day 150).
+
+![Q Sensitivity](images/sensitivity_Q.png)
+
+Tuning R and Q is analogous to tuning a control system — a direct parallel to the EKF
+parameter tuning done in the robot state estimation project.
+
 ## Resume Keywords
 `Kalman Filter` `State Estimation` `Signal Processing` `Time-Series Filtering` `Sensor Fusion` `Financial Modeling`
